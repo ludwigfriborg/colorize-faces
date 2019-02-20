@@ -1,16 +1,13 @@
 import keras
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
-from PIL import Image
 from skimage import color
 from skimage import io
 from keras import Sequential
 from keras.models import load_model
-from keras.layers import Convolution2D, Dense, MaxPooling2D, UpSampling2D, Flatten, Reshape, Dropout
-from keras.preprocessing.image import ImageDataGenerator, load_img
-from keras.callbacks import EarlyStopping
+from keras.layers import Convolution2D, Dense, MaxPooling2D, UpSampling2D
+from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import Adam
 
 
@@ -54,8 +51,8 @@ def train(model_name):
   epochs = 50
 
   # get model
-  # model = create_model()
-  model = load_model('m.h5')
+  model = create_model()
+  # model = load_model('m.h5')
 
   x_datagen = ImageDataGenerator()
   y_datagen = ImageDataGenerator()
@@ -103,7 +100,7 @@ def test(model_name, images=['test.png']):
   plt.show()
 
 
-# train('m.h5')
+#train('m.h5')
 test('m.h5', images=['George_W_Bush_0008.jpg', 'Aaron_Sorkin_0001.jpg', 'Helen_Darling_0001.jpg'])
 test('m.h5', images=['feynman_s.jpg', 'curie_s.jpg', 'nobel_s.jpg', 'neumann_s.jpg'])
 test('m.h5', images=['test_1.png', 'test_2.jpg', 'test_3.jpg', 'test_4.jpg'])
